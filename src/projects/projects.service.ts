@@ -84,7 +84,14 @@ export class ProjectsService {
     if (!project) throw new Error('Project not found');
     if (project.owner.id !== owner.id) throw new ForbiddenException('Only the owner can remove members');
 
-    project.members = project.members.filter((member) => member.id !== userId);
+    const memberIds = project.members.map((member) => member.id);
+    
+    if (!memberIds.includes(Number(userId))) {
+      throw new Error('User is not a member of this project');
+    }
+    
+    project.members = project.members.filter((member) => member.id !== Number(userId));
+
     await this.projectsRepository.save(project);
     await this.logActivity(project, owner, `User ${userId} removed from project`);
   }
