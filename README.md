@@ -267,4 +267,4 @@ Todas as ações em projetos (criação, atualizações, alterações de membros
 
 ## Tratamento de Erros
 
-Os erros precisam ser configurados corretamente para todas as rotas, apenas algumas estão com detalhes implementados
+Os erros precisam ser configurados corretamente para todas as rotas, apenas algumas estão com detalhes implementados, sinta-se livre para contribuir
